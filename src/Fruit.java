@@ -1,15 +1,19 @@
 import fruitNinjaHelper.cs331Fruit;
 import fruitNinjaHelper.cs331ScoreController;
 
-public class Fruit extends cs331Fruit implements FBomb{
+
+public abstract class Fruit extends cs331Fruit implements Choppable{
+
     private int points;
     private cs331ScoreController cont;
+
+
     public Fruit(int points, cs331ScoreController cont){
         this.points = points;
         this.cont = cont;
         wash();
         ripen();
-        super.setImage(getImage());
+        //super.setImage(getImage());
     }
     
     @Override
@@ -23,12 +27,6 @@ public class Fruit extends cs331Fruit implements FBomb{
         this.splash();
         cont.addToScore(points);
     }
-
-    @Override
-    public boolean isFruit(){
-        return true;
-    }
-
 
     public int getPoints(){
         return this.points;

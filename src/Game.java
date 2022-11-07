@@ -1,4 +1,3 @@
-import fruitNinjaHelper.Constants;
 import fruitNinjaHelper.cs331Blade;
 import fruitNinjaHelper.cs331FruitNinjaGame;
 import fruitNinjaHelper.cs331ScoreController;
@@ -17,7 +16,7 @@ public class Game extends cs331FruitNinjaGame{
 
    
 
-    public void updateChoppable(FBomb obj){
+    public void updateChoppable(Choppable obj){
         obj.move();
         if(fruitSlicer.checkIntersection(obj)){
             obj.slice();
@@ -26,37 +25,21 @@ public class Game extends cs331FruitNinjaGame{
 
     @Override
     public Object launchItem() {
-
-        //launchItem would return Fruit/Bomb object. 
-        //So you need to create appropriate concrete class
-        //for the fruits and/or Bomb, and generate them within this method.
-        System.out.println("launching itemz");
-        Fruit apple = new Fruit(2, cont);
-        apple.setImage(Constants.APPLE_PATH);
-        Fruit lemon = new Fruit(2, cont);
-        lemon.setImage(Constants.LEMON_PATH);
-        Fruit pear = new Fruit(3, cont);
-        pear.setImage(Constants.PEAR_PATH);
-        Fruit peach = new Fruit(5, cont);
-        peach.setImage(Constants.PEACH_PATH);
-        
-        Bomb bomb = new Bomb();
-
         int rand = (int)(Math.random()*(5));
         
         switch(rand){
             case 0:
-                return apple;
+                return new Apple(cont);
             case 1:
-                return lemon;
+                return new Lemon(cont);
             case 2:
-                return pear;
+                return new Pear(cont);
             case 3:
-                return peach;
+                return new Peach(cont);
             case 4:
-                return bomb;
+                return new Bomb();
             default:
-                return bomb;
+                return new Bomb();
         }
     }
     

@@ -1,7 +1,5 @@
-public interface FBomb {
+public interface Choppable {
     public abstract void move();
 
     public abstract void slice();
-
-    public abstract boolean isFruit();
 }

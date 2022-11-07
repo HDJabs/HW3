@@ -1,6 +1,6 @@
 import fruitNinjaHelper.cs331Bomb;
 
-public class Bomb extends cs331Bomb implements FBomb{
+public class Bomb extends cs331Bomb implements Choppable{
     public Bomb(){
         this.setImage("images/bomb.png");
     }
@@ -15,8 +15,5 @@ public class Bomb extends cs331Bomb implements FBomb{
         this.explode();
     }
 
-    @Override
-    public boolean isFruit(){
-        return false;
-    }
+
 }
